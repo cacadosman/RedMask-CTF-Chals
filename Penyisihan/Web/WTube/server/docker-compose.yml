@@ -8,7 +8,8 @@ services:
       dockerfile: Dockerfile.app
     restart: unless-stopped
     environment:
-      APP_DEBUG: 'true'
+      APP_ENV: production
+      APP_DEBUG: 'false'
       APP_URL: http://localhost
     working_dir: /var/www
     expose:
