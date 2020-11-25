@@ -1,0 +1,34 @@
+version: '3'
+services:
+
+  #PHP Service
+  backend-app:
+    build:
+      context: .
+      dockerfile: Dockerfile.app
+    restart: unless-stopped
+    environment:
+      APP_DEBUG: 'true'
+      APP_URL: http://localhost
+    working_dir: /var/www
+    expose:
+      - "80"
+    networks:
+      - app-network
+
+  #Nginx Service
+  server-app:
+    build:
+      context: .
+      dockerfile: Dockerfile.nginx
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "10001:80"
+    networks:
+      - app-network
+
+#Docker Networks
+networks:
+  app-network:
+    driver: bridge
