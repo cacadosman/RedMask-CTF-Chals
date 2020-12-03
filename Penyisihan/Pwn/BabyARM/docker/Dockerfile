@@ -12,4 +12,6 @@ COPY run.sh /home/ctf/
 COPY flag.txt /home/ctf/
 COPY babyarm /etc/xinetd.d/
 
+EXPOSE 1337
+
 CMD xinetd -dontfork

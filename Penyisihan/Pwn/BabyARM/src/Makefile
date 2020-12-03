@@ -7,6 +7,8 @@ OBJ=main.o
 
 main: $(OBJ)
 	$(CC) -o $@ $^ $(CFLAGS)
+	cp $@ ../docker/$@
+	cp $@ ../peserta/$@
 
 .PHONY: clean
 

@@ -1,3 +1,3 @@
 #!/bin/bash
 
-qemu-arm-static ./main 2>&1
+qemu-arm-static /home/ctf/main 2>&1
