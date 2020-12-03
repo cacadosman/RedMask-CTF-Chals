@@ -7,7 +7,12 @@ Can you pop up shell real quick?
 ```
 nc IP PORT
 ```
-
+hashes
+```
+qjs b018a7c1c0653bac5355dd0f78cf6e5462e4eb71
+chall.zip c8d8080e60e26a23adb8dce6f2c80d802a0035bd
+```
+[qjs](peserta/qjs)
 [chall.zip](peserta/chall.zip)
 
 ## Technical information
