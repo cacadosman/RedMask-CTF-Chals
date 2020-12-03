@@ -2,7 +2,7 @@
 Git is Fun?
 
 ## Deskripsi Soal
-> In a certain place, there's an old thing. At first, there's nothing special about it. But, if you look deep enough, you'll eventually find a time machine brings you back to a certain moment.
+> In a certain place, there's an old thing. At first, there's nothing special about it. But, if you look deep enough, you'll eventually find a time machine that brings you back to a certain moment.
 
 ## Hint Soal
 - RFC 1813
@@ -97,8 +97,11 @@ Berdasarkan informasi yang telah diperoleh sebelumnya, kita dapat menyimpulkan b
 Dari sini, kita perlu mengubahnya menjadi `Normal repository` untuk dapat mengakses VCS management sebagainya Github Repository pada umumnya.
 
 ```bash
-❯ mkdir normal-repo                                              
-❯ mv git normal-repo/.git                                                      ❯ cd normal-repo                                              ❯ rm -rf .git/*.lock                                                     ❯ git config --local --bool core.bare false 
+❯ mkdir normal-repo
+❯ mv git normal-repo/.git
+❯ cd normal-repo
+❯ rm -rf .git/*.lock
+❯ git config --local --bool core.bare false 
 
 ❯ git log --oneline | head 
 
