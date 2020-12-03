@@ -1,0 +1,41 @@
+version: '3'
+services:
+  db:
+    build:
+      context: .
+      dockerfile: Dockerfile.db
+    volumes:
+      - db_data:/var/lib/mysql
+      - db_data:/tmp/heheboi
+      - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: bajigur1337hekel
+      MYSQL_DATABASE: yangbacawibu
+      MYSQL_USER: yangbacawibu
+      MYSQL_PASSWORD: bajigur1337hekel      
+    networks:
+      - dokumen-rahasia-network
+
+  #PHP Service
+  backend-dokumen-rahasia:
+    build:
+      context: .
+      dockerfile: Dockerfile.app
+    restart: unless-stopped
+    working_dir: /app
+    volumes:
+      - db_data:/tmp/heheboi
+    ports:
+      - "10003:80"
+    networks:
+      - dokumen-rahasia-network
+
+#Docker Networks
+networks:
+  dokumen-rahasia-network:
+    driver: bridge
+
+volumes:
+  db_data: {}

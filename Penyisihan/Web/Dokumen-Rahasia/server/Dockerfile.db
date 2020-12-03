@@ -1,0 +1,4 @@
+from mysql:5.7
+
+RUN mkdir /tmp/heheboi
+RUN chown -R 999:999 /tmp/heheboi
