@@ -1,0 +1,20 @@
+version: '3.2'
+services:
+
+  #Load Balancer
+  balancer:
+    image: wtube_server:latest
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "11001:11001"
+      - "11002:11002"
+      - "11002:11002"
+    networks:
+      - balancer-network
+
+#Docker Networks
+networks:
+  balancer-network:
+    driver: overlay
+    attachable: true
