@@ -2,23 +2,16 @@ import os
 
 def read_file(name):
     with open(name, 'rb') as handle:
-        return handle.read().strip('\x00')
+        return handle.read().decode()
 
-logs = read_file('logs').split('\n')[:-1]
-result = ['']*100
+logs = os.popen('cd normal-repo && git log --oneline').readlines()
+result = dict()
 
 for log in logs[::-1]:
     commit_id = log.split()[0]
-    command = log.split()[1]
+    index = log.split()[-2][:-2]
+    os.popen('cd normal-repo && git checkout ' + commit_id)
+    content = read_file('normal-repo/flag.txt')
+    result[int(index)] = content
 
-    if command == 'Add':
-        target_file = os.path.join('files', commit_id)
-        content = read_file(target_file)
-        index = log.split()[2][:-2]
-        result[int(index)] = content
-
-    elif command == 'Remove':
-        index = log.split()[2][:-2]
-        result[int(index)] = ''
-
-print ''.join(result)
+print(''.join(result.values()))

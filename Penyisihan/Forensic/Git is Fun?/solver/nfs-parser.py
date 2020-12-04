@@ -91,6 +91,7 @@ def getattr(call, reply):
             alias[BASE] = fh
             folder[fh] = [BASE]
 
+            print '[+] Initialize', BASE, 'directory'
             try:
                 os.makedirs(BASE)
             except OSError:
@@ -106,9 +107,6 @@ def link(call, reply):
 
     current_node = walk(source)
     target_node = walk(base)
-
-    print search.find_by_attr(tree, source)
-    print current_node, target_node
 
     # rename
     if current_node.parent != target_node:
@@ -235,7 +233,6 @@ if __name__ == "__main__":
         assert ('Call' in call), call
         assert ('Reply' in reply), reply
 
-        print call, reply
         func = eval(p1)
         func(call, reply)
 
