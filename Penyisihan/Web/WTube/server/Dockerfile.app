@@ -24,7 +24,7 @@ RUN apt-get update && apt-get install -y \
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install extensions
-RUN docker-php-ext-install pdo_sqlite mbstring zip exif pcntl
+RUN docker-php-ext-install pdo_mysql pdo_sqlite mbstring zip exif pcntl
 
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
@@ -39,7 +39,12 @@ COPY ./app /var/www
 ENV APP_NAME=WTube \
     APP_KEY=base64:xxWiZdc+32XZyLChIiLFals7XwglYh2kyQzm+bFIUg4= \
     APP_ENV=local \
-    DB_CONNECTION=sqlite \
+    DB_CONNECTION=mysql \
+    DB_HOST=202.148.27.84 \
+    DB_PORT=17013 \
+    DB_DATABASE=wtube \
+    DB_USERNAME=Bambang123@ \
+    DB_PASSWORD=Bambang123@ \
     MAIL_MAILER=mailgun \
     MAIL_HOST=smtp.mailgun.org \
     MAIL_PORT=587 \

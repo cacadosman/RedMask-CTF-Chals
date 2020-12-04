@@ -1,4 +1,4 @@
-version: '3'
+version: '3.2'
 services:
   db:
     build:
@@ -10,6 +10,9 @@ services:
       - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql
       - ./my.cnf:/etc/mysql/conf.d/my.cnf
     restart: always
+    deploy:
+      placement:
+        constraints: [node.hostname == weeb]
     environment:
       MYSQL_ROOT_PASSWORD: bajigur1337hekel
       MYSQL_DATABASE: yangbacawibu
@@ -25,6 +28,9 @@ services:
       dockerfile: Dockerfile.app
     restart: unless-stopped
     working_dir: /app
+    deploy:
+      placement:
+        constraints: [node.hostname == weeb]
     volumes:
       - db_data:/tmp/heheboi
     ports:

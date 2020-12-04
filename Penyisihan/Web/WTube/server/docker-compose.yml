@@ -11,8 +11,7 @@ services:
       APP_URL: http://localhost
     working_dir: /var/www
     deploy:
-      mode: replicated
-      replicas: 1
+      mode: global
       placement:
         constraints: [node.role == manager]
     expose:
@@ -26,12 +25,30 @@ services:
     restart: unless-stopped
     tty: true
     deploy:
-      mode: replicated
-      replicas: 1
+      mode: global
       placement:
         constraints: [node.role == manager]
     ports:
       - "10001:80"
+    networks:
+      - wtube-network
+
+  #Mysql Service
+  db:
+    image: mysql:5.7
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: Bambang123@
+      MYSQL_DATABASE: wtube
+      MYSQL_USER: Bambang123@
+      MYSQL_PASSWORD: Bambang123@
+    deploy:
+      placement:
+        constraints: [node.hostname == ubuntu]
+    ports:
+      - "17013:3306"
     networks:
       - wtube-network
 
@@ -40,3 +57,6 @@ networks:
   wtube-network:
     driver: overlay
     attachable: true
+
+volumes:
+  db_data: {}
