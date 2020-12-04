@@ -9,7 +9,6 @@ services:
     ports:
       - "11001:11001"
       - "11002:11002"
-      - "11002:11002"
     networks:
       - balancer-network
 
