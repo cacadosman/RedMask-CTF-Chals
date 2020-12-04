@@ -2,8 +2,7 @@ version: '3.2'
 services:
   db:
     build:
-      context: .
-      dockerfile: Dockerfile.db
+      image: secretdoc_db:latest
     volumes:
       - db_data:/var/lib/mysql
       - db_data:/tmp/heheboi
@@ -23,9 +22,7 @@ services:
 
   #PHP Service
   backend-dokumen-rahasia:
-    build:
-      context: .
-      dockerfile: Dockerfile.app
+    image: secretdoc_backend:latest
     restart: unless-stopped
     working_dir: /app
     deploy:
