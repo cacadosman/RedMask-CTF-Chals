@@ -4,7 +4,8 @@ services:
     image: benshin_app:latest
     restart: unless-stopped
     deploy:
-      mode: global
+      mode: replicated
+      replicas: 10
       placement:
         constraints: [node.role == manager]
     ports:
