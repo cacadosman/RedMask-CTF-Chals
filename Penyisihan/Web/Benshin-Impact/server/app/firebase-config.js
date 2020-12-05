@@ -1,11 +1,11 @@
 var firebaseConfig = {
-    apiKey: "AIzaSyD0mRDhMuwpmG57MKUKYPwyLiclCpcJU84",
-    authDomain: "gabut-ctf.firebaseapp.com",
-    databaseURL: "https://gabut-ctf.firebaseio.com",
-    projectId: "gabut-ctf",
-    storageBucket: "gabut-ctf.appspot.com",
-    messagingSenderId: "167211545819",
-    appId: "1:167211545819:web:c9cd7cb6ad651e669c48fe"
+    apiKey: "AIzaSyDVdXkHUqVK_N0VbV-wR5Z3cL7r7qrQOMw",
+    authDomain: "gabut-ctf-2.firebaseapp.com",
+    projectId: "gabut-ctf-2",
+    storageBucket: "gabut-ctf-2.appspot.com",
+    messagingSenderId: "432083273444",
+    appId: "1:432083273444:web:58bba5c471957cc3294ef1",
+    measurementId: "G-XEQC58S588"
 }
 
 module.exports = firebaseConfig
