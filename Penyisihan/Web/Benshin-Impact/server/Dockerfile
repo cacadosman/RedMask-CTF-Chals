@@ -12,8 +12,8 @@ RUN npm install
 # If you are building your code for production
 # RUN npm ci --only=production
 
-RUN addgroup -g 82 -S www-data \
-&& adduser -u 82 -D -S -G www-data www-data
+RUN groupadd -g 999 www
+RUN useradd -u 999 -ms /bin/bash -g www www
 
 USER www-data
 
