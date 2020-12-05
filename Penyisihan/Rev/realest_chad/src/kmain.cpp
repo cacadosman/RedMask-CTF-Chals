@@ -33,7 +33,7 @@
 short* VGA_MEM = (short*) 0xb8000;
 
 /* ================ static data ========================= */
-static unsigned char flag[] = "chad_breaking_into_real_mode___}";
+static unsigned char flag[] = {55, 14, 231, 104, 112, 164, 148, 203, 139, 243, 47, 122, 146, 71, 20, 100, 94, 12, 159, 33, 122, 19, 144, 88, 61, 24, 168, 71, 228, 91, 215, 63};
 
 static int val[] = {187, 119, 198, 42, 192, 31, 24, 252, 99, 84, 234, 102, 12, 134, 20, 152, 136, 204, 245, 125, 34, 70, 66, 80, 174, 47, 10, 4, 7, 114, 230, 83};
 static int pos[] = {19, 22, 5, 31, 29, 27, 13, 25, 30, 0, 8, 1, 3, 2, 11, 9, 17, 21, 12, 14, 20, 10, 16, 23, 7, 4, 15, 18, 24, 26, 6, 28};
@@ -50,7 +50,7 @@ unsigned int abs(int a) {
 	return (a >= 0) ? a : -a;
 }
 
-void swap(unsigned char* a, unsigned char* b) {
+void swap(int* a, int* b) {
 	int tmp = *a;
 	*a = *b;
 	*b = tmp;
