@@ -15,7 +15,7 @@ RUN npm install
 RUN groupadd -g 999 www
 RUN useradd -u 999 -ms /bin/bash -g www www
 
-USER www-data
+USER www
 
 EXPOSE 3000
 CMD [ "node", "index.js" ]
