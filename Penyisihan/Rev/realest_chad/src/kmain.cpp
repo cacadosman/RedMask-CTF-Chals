@@ -59,15 +59,17 @@ void swap(int* a, int* b) {
 void pepega() { for (unsigned int i = 1; i; ++i); }
 
 bool check() {
-	for (int i = 0; i < 15; ++i) {
-		if (pos[i] > pos[i + 1])
-			return 0;
-	}
-	for (int i = 16; i < 32; ++i) {
-		if (pos[i] < pos[i + 1])
-			return 0;
-	}
-	return 1;
+    if (pos[0] != 0 || pos[31] != 16)
+        return 0;
+    for (int i = 0; i < 15; ++i) {
+        if (pos[i] != pos[i + 1] - 1)
+            return 0;
+    }
+    for (int i = 16; i < 31; ++i) {
+        if (pos[i] != pos[i + 1] + 1)
+            return 0;
+    }
+    return 1;
 }
 
 /* ================ main ========================= */
