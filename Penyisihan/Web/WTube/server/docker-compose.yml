@@ -9,16 +9,6 @@ services:
       APP_ENV: production
       APP_DEBUG: 'false'
       APP_URL: http://localhost
-      MAIL_MAILER: mailgun 
-      MAIL_HOST: smtp.mailgun.org 
-      MAIL_PORT: 587 
-      MAIL_USERNAME: postmaster@email.cacadosman.com 
-      MAIL_PASSWORD: a5fd1b9425b1eb0f4572bf0e21054a48-95f6ca46-a955aa9c 
-      MAIL_ENCRYPTION: tls 
-      MAIL_FROM_ADDRESS: wtube@email.cacadosman.com 
-      MAIL_FROM_NAME: WTube 
-      MAILGUN_DOMAIN: email.cacadosman.com 
-      MAILGUN_SECRET: e2839f2c5df721e9c472f4ef56b7c6a8-95f6ca46-8aea1f31
     working_dir: /var/www
     deploy:
       mode: global
